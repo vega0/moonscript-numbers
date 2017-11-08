@@ -74,16 +74,6 @@ export to_custom = (num10, base, alphabet, accum = {}) ->
 
 	concat accum, ''
 
-if debug
-	__test_number = (num, base) ->
-		valu7e = to_custom num, base
-		back = tonumber valu7e, base
-		-- Check is generated string number in right number system
-		-- by calling internal tonumber function!
-		print "Value: " .. valu7e .. (' (' .. (num == back and 'True' or 'False') .. ')')
-		assert num == back, "Something goes wrong!"
-		valu7e
-
 --- Class.Number
 --@section Class
 
@@ -167,7 +157,7 @@ export class Number
 
 	--- Sub
 	__sub: (what) => Number(@asDecimal! - _prepare_op what)\toBase @_base
---	__div: (what) => Number(@asDecimal! / _prepare_op what)\toBase @_base -- unsupported cuz not float support
+--	__div: (what) => Number(@asDecimal! / _prepare_op what)\toBase @_base -- unsupported cuz no float support
 --	__mul: (what) => Number(@asDecimal! * _prepare_op what)\toBase @_base -- unsupported too
 	
 	--- Pow
